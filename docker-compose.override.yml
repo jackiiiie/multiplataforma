@@ -1,0 +1,8 @@
+
+
+services:
+  postgres:
+    environment:
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: 1234
+      DATABASE_NAME: postgres
