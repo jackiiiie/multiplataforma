@@ -3,7 +3,7 @@ import os
 
 # Adiciona o diretório raiz do projeto ao sys.path
 current_dir = os.path.dirname(__file__)
-root_dir = os.path.abspath(os.path.join(current_dir, '../'))
+root_dir = os.path.abspath(os.path.join(current_dir, '..'))
 sys.path.insert(0, root_dir)
 
 from multiplataforma.config.database import get_db
@@ -19,11 +19,11 @@ def main():
 
         # CREATE
         usuario_create_dto = UsuarioCreateDTO(
-            name="John Doe",
-            email="email@email.com",
-            password="123123",
-            cpf="111.111.111-33",
-            phone="1199999999"
+            name="Maria Doe",
+            email="emaill@email.com",
+            password="234234",
+            cpf="11111111133",
+            phone="11999999999"
         )
         user_to_created = usuario_service.create(usuario_create_dto)
         user_id = user_to_created.id
@@ -35,18 +35,25 @@ def main():
 
         # UPDATE
         user_update_data = UsuarioUpdateDTO(
-            name="John Doe",
-            email="email@gmail.com",
-            password="123123",
-            phone="1111111111"
+            name="Maria Doe",
+            email="emaill@gmail.com",
+            password="234234",
+            phone="11999999999"
         )
         user_updated = usuario_service.update(user_id=user_id, user_data=user_update_data)
         print(f'user updated: {user_updated}')
 
-        # DELETE
-        user_deleted_id = usuario_service.delete(user_id)
-        print(f'user deleted with id: {user_deleted_id}')
+        # # DELETE
+        # user_deleted_id = usuario_service.delete(user_id)
+        # print(f'user deleted with id: {user_deleted_id}')
 
 
 if __name__ == '__main__':
     main()
+
+
+
+
+
+
+
