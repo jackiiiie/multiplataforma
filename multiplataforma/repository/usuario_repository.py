@@ -1,6 +1,10 @@
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# Adiciona o diretório raiz do projeto ao sys.path
+current_dir = os.path.dirname(__file__)
+root_dir = os.path.abspath(os.path.join(current_dir, '../../'))
+sys.path.insert(0, root_dir)
 
 from sqlalchemy.orm import Session
 
