@@ -19,11 +19,11 @@ def main():
 
         # CREATE
         usuario_create_dto = UsuarioCreateDTO(
-            name="Maria Doe",
-            email="emaill@email.com",
-            password="234234",
-            cpf="11111111133",
-            phone="11999999999"
+            name="Jhon Doe",
+            email="email@email.com",
+            password="123123",
+            cpf="12345678909",
+            phone="11999999998"
         )
         user_to_created = usuario_service.create(usuario_create_dto)
         user_id = user_to_created.id
@@ -35,10 +35,10 @@ def main():
 
         # UPDATE
         user_update_data = UsuarioUpdateDTO(
-            name="Maria Doe",
-            email="emaill@gmail.com",
-            password="234234",
-            phone="11999999999"
+            name="Jhon Doe",
+            email="email@gmail.com",
+            password="123123",
+            phone="11999999998"
         )
         user_updated = usuario_service.update(user_id=user_id, user_data=user_update_data)
         print(f'user updated: {user_updated}')
