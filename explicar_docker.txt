@@ -1,0 +1,54 @@
+
+Porque não colocar .env?
+
+No meu conputador window 10,ele não reconhecia o .env por  isso criei outro
+docker-compose.override, como rodando um sub para poder, so dessa forma consegui rodar o docker.
+
+Para confirmar que estivese correto coloquei:
+
+docker-compose config
+
+que deu isso:
+
+services:
+  postgres:
+    container_name: postgres
+    environment:
+      DATABASE_NAME: postgres
+      DATABASE_PASSWORD: "1234"
+      DATABASE_USER: postgres
+    image: postgres
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5432
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: postgres_data
+        target: /var/lib/postgresql/data
+        volume: {}
+networks:
+  default:
+    name: multiplataforma_default
+volumes:
+  postgres_data:
+    name: multiplataforma_postgres_data
+
+
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      DATABASE_NAME: postgres
+      DATABASE_PASSWORD: "1234"
+      DATABASE_USER: postgres
+    ports:
+      - "5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
